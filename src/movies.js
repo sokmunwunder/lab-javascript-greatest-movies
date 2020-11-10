@@ -26,13 +26,28 @@ const ratesAverage(array){
     const average = array.reduce(function(total, value, index, list){
     let sumOfRates=0;
     sumOfRates += value.rate;
-    let sumOfRatesTwoDecimalPlaces = (sumOfRates, 2) => Math.round(sumOfRates*10**2)/10**2;
-    return total + sumOfRatesTwoDecimalPlaces/list.length;
-    },0);
+    let averageRate = sumOfRates/list.length; 
+    let averageRateTwoDecimalPlaces =  (averageRate,2) => Math.round(averageRate*10**2)/10**2;
+    return total + averageRateTwoDecimalPlaces; 
+    },0);}
     return average;
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
+const dramaMovieRates(array){
+    const dramaOnly= array.filter(function(value, index, list){
+        return value.genre === "Drama";
+    })
+    .reduce(function(total, value, index, list){
+        let sumOfDramaRates = 0;
+        sumOfDramaRates += value.rate;
+        let averageDramaRate = sumOfDramaRates/list.length;
+        let averageDramaRateTwoDecimals = (averageDramaRate, 2) => Math.round(averageDramaRate*10**2)/10**2;
+        return total + averageDramaRateTwoDecimals;
+    }, 0);}
+   return dramaOnly; 
+}
+
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 
