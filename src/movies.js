@@ -1,7 +1,25 @@
+
+
+
 // Iteration 1: All directors? - Get the array of all directors.
+function getAllDirectors(array){
+const directors = array.map(function(value, index, originalArray){
+    return value.director;});
+return directors;}
+
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors. How could you "clean" a bit this array and make it unified (without duplicates)?
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
+
+function howManyMovies(array){
+    const numbers = array.filter(function(value, index, originalArray){
+    return value.director === "Steven Spielberg" &&& value.genre.includes("Drama");})
+    .reduce(function(accumulator, value, index, list){
+    return accumulator + list.length-1;
+     }, 0);
+    return numbers;}
+
+      
 
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
 
