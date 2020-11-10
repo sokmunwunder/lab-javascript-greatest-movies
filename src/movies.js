@@ -14,14 +14,23 @@ return directors;}
 function howManyMovies(array){
     const numbers = array.filter(function(value, index, originalArray){
     return value.director === "Steven Spielberg" &&& value.genre.includes("Drama");})
-    .reduce(function(accumulator, value, index, list){
-    return accumulator + list.length-1;
+    .reduce(function(total, value, list){
+        if (list.length === null){return null;}
+        else{
+    return total + list.length-1;}
      }, 0);
     return numbers;}
 
-      
-
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
+const ratesAverage(array){
+    const average = array.reduce(function(total, value, index, list){
+    let sumOfRates=0;
+    sumOfRates += value.rate;
+    let sumOfRatesTwoDecimalPlaces = (sumOfRates, 2) => Math.round(sumOfRates*10**2)/10**2;
+    return total + sumOfRatesTwoDecimalPlaces/list.length;
+    },0);
+    return average;
+}
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 
