@@ -22,7 +22,7 @@ function howManyMovies(array){
     return numbers;}
 
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
-const ratesAverage(array){
+function ratesAverage(array){
     const average = array.reduce(function(total, value, index, list){
     let sumOfRates=0;
     sumOfRates += value.rate;
@@ -34,7 +34,7 @@ const ratesAverage(array){
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-const dramaMovieRates(array){
+function dramaMovieRates(array){
     const dramaOnly= array.filter(function(value, index, list){
         return value.genre === "Drama";
     })
@@ -50,6 +50,14 @@ const dramaMovieRates(array){
 
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
+
+function orderByYear(array){
+    const newAscendingOrder = array.year.sort(function(a,b){
+        if (a >b){return 1;}
+        else {return -1}
+    });
+    return newAscendingOrder;
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 
