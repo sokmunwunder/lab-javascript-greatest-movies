@@ -13,7 +13,7 @@ return directors;}
 
 function howManyMovies(array){
     const numbers = array.filter(function(value, index, originalArray){
-    return value.director === "Steven Spielberg" &&& value.genre.includes("Drama");})
+    return value.director === "Steven Spielberg" && value.genre.includes("Drama");})
     .reduce(function(total, value, list){
         if (list.length === null){return null;}
         else{
@@ -27,11 +27,11 @@ function ratesAverage(array){
     let sumOfRates=0;
     sumOfRates += value.rate;
     let averageRate = sumOfRates/list.length; 
-    let averageRateTwoDecimalPlaces =  (averageRate,2) => Math.round(averageRate*10**2)/10**2;
+    let averageRateTwoDecimalPlaces =  Math.round(averageRate*10**2)/10**2;
     return total + averageRateTwoDecimalPlaces; 
     },0);}
-    return average;
-}
+  
+
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMovieRates(array){
@@ -42,11 +42,11 @@ function dramaMovieRates(array){
         let sumOfDramaRates = 0;
         sumOfDramaRates += value.rate;
         let averageDramaRate = sumOfDramaRates/list.length;
-        let averageDramaRateTwoDecimals = (averageDramaRate, 2) => Math.round(averageDramaRate*10**2)/10**2;
+        let averageDramaRateTwoDecimals = Math.round(averageDramaRate*10**2)/10**2;
         return total + averageDramaRateTwoDecimals;
     }, 0);}
-   return dramaOnly; 
-}
+  
+
 
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
@@ -61,8 +61,9 @@ function orderByYear(array){
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(array){
-    const newAlphabeticalOrder = array.title.sort(a, b) =>{return a.localeCompare(b); }
-    return newAlphabeticalOrder;
+    const newAlphabeticalOrder = array.title.sort(a, b)
+    return a.localeCompare(b); 
+   
 }
 
 
